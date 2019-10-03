@@ -1,0 +1,38 @@
+<html>
+<script>
+function printWords()
+{
+  document.getElementById("list").value="";
+  var str=document.getElementById("word").value;
+  //var list=document.getElementById("list");
+  var temp="";
+  for(var i=0;i<str.length;i++)
+  {
+    temp+=str.charAt(i);
+    for(var j=0;j<str.length;j++)
+    {
+      if(j==i)
+        continue;
+      temp+=str.charAt(j);
+      for(var k=0;k<str.length;k++)
+      {
+        if(k==j ||k==i)
+          continue;
+          temp+=str.charAt(k);
+          document.getElementById("list").value+=temp+" ";
+          temp=temp.substring(0,2);
+      }
+      temp=temp.substring(0,1);
+    }
+    temp="";
+  }
+}
+</script>
+<body>
+  <label>Enter word(5-letters only):</label><br>
+  <input type="text" maxlength="5" id="word"><button type="button" name="Submit" id="submit" onclick="printWords()">SUBMIT</button>
+  <br><br>
+  <label>Output:</label><br>
+  <textarea id="list" rows="8" cols="80"></textarea>
+</body>
+</html>

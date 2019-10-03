@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form name="form">
+<p>English word/sentence:</p>
+<input type="text" id="english" required size="80" /> <br />
+<input type="submit" value="Translate!" onClick="printLatinWord()" />
+<p>Pig Latin translation:</p>
+<textarea id="output" name="piglat" rows="10" cols="60"></textarea>
+</form>
+<script language = "JavaScript">
+function printLatinWord(str)
+{
+  var str=document.getElementById('english').value;
+  str=str.trim();
+  if(str.length()==0)
+	return;
+  var array=str.split(" ");
+  var res;
+  for(var i=0;i<array.length;i++)
+  {
+    //console.log(array[i]);
+    res=array[i].substring(1)+array[i].substring(0,1)+"ay";
+    document.getElementById("output").innerHTML+=res+" ";
+  }
+}
+</script>
+</body>
+</html>

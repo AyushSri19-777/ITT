@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form name="form">
+<p>Enter telephone number:</p>
+<input type="text" id="teleNum" size="80"/> <br />
+<input type="button" value="Break it down" onClick="breakDown()" />
+<p>Area code:</p>
+<textarea id="areaCode" name="Area" rows="1" cols="30"></textarea>
+<p>Phone no:</p>
+<textarea id="phoneNo" rows="1" cols="30"></textarea>
+</form>
+<script>
+function breakDown()
+{
+  var str=document.getElementById("teleNum").value;
+  console.log(str);
+  document.getElementById("areaCode").innerHTML=str.substring(1,4);
+  document.getElementById("phoneNo").innerHTML=str.substring(5,8)+str.substring(9);
+}
+</script>
+</body>
+</html>
